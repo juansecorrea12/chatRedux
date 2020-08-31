@@ -22,7 +22,7 @@ export const messageReducer = (previousState = INITIAL_STATE, action) => {
     case "SEND_MESSAGE":
       let message = {
         id: calculateId(5),
-        content: "Contenido",
+        content: previousState.inputMessage,
         date: new Date(),
         showOptions: false,
       };
@@ -34,8 +34,12 @@ export const messageReducer = (previousState = INITIAL_STATE, action) => {
       messages = [previousState.messages];
       messages.splice(action.payload, 1);
       return { ...previousState, messages: messages };
-    case "SHOW_OPTINOS":
-      break;
+    case "SHOW_OPTIONS":
+      messages = [...previousState.messages];
+      console.log(messages[action.payload]);
+      messages[action.payload].showOptions = !messages[action.payload]
+        .showOptions;
+      return { ...previousState, messages: messages };
     default:
       return previousState;
   }

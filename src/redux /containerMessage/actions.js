@@ -13,6 +13,6 @@ export const setInputValue = (text) => ({
 });
 
 export const showOptions = (id) => ({
-  type: "SHOW_OPTINOS",
+  type: "SHOW_OPTIONS",
   payload: id,
 });

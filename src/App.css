@@ -47,6 +47,15 @@
   padding: 5px 10px 5px 12px;
   width: 100%;
 }
+.content-space {
+  display: flex;
+}
+.content-space small {
+  margin-left: -15px;
+  cursor: pointer;
+  color: #747474;
+  font-size: 10px;
+}
 .message-info span {
   color: #747474;
   display: block;
