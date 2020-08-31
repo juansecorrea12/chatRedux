@@ -31,7 +31,7 @@ export const messageReducer = (previousState = INITIAL_STATE, action) => {
         messages: [...previousState.messages, message],
       };
     case "DELETE_MESSAGE":
-      messages = [previousState.messages];
+      messages = [...previousState.messages];
       messages.splice(action.payload, 1);
       return { ...previousState, messages: messages };
     case "SHOW_OPTIONS":
