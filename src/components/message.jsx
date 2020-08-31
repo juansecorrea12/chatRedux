@@ -4,6 +4,7 @@ import moment from "moment";
 import { useState } from "react";
 import store from "../redux /store";
 import { deleteMessage } from "../redux /containerMessage/actions";
+import faker from "faker";
 
 export default function Message(props) {
   const [showOptions, setShowOptions] = useState(false);
@@ -42,14 +43,15 @@ export default function Message(props) {
           </div>
         ) : null}
       </div>
-      {/* <div className="outgoing-message">
+
+      <div className="outgoing-message">
         <div className="message-info-bot">
-          <p>{props.message.content}</p>
+          <p>{faker.hacker.phrase()}</p>
           <span>
             {moment(props.message.date).format("hh:mm A | dd DD MMM")}
           </span>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
