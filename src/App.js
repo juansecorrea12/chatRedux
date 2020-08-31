@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import "./App.css";
+import ContainerMessage from "./components/containermessage.jsx";
+import store from "./redux /store";
+import Message from "./components/message";
+import InputMessage from "./components/inputMessage.jsx";
 function App() {
+  const { messageReducer } = store.getState();
+  const messages = messageReducer.messages;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Mensajes bidireccionales</h1>
+      <ContainerMessage>
+        <div>
+          {messages.map((message, index) => {
+            return <Message key={index} message={message} />;
+          })}
+        </div>
+        <div className="type_msg">
+          <InputMessage />
+        </div>
+      </ContainerMessage>
     </div>
   );
 }
